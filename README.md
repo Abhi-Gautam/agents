@@ -1,7 +1,9 @@
 # Agents
 
-We already know how to run durable work on Temporal. What we did not have was an agent that could open a real workspace, use a shell the way coding harnesses do, and still leave execution ownership in one place.
+The orchestration engine already knows how to run an operation without inventing a second ledger for retries, cancellation, or progress. What it does not yet know is how to host the kind of work that looks like an agent: a long-lived thread that thinks, uses tools, waits on humans, and keeps a workspace without turning the agent framework into the orchestrator.
 
-This lab is that cut. A zip lands on disk, a SandboxAgent works inside a jailed directory with native tools, model calls go out through OpenRouter, and Temporal keeps the run. Nothing about the loop is rebuilt as custom file tools, and nothing about the run lives in a second framework’s tables.
+That is the seam this lab is for. Temporal stays the durable execution plane. An agent harness owns the loop and the tools models already understand. Workspaces and large artifacts stay on disk or object storage. Conversation product memory, when it arrives, is not allowed to become a second run store.
 
-Task queue is `agents` against the same Temporal the orchestration lab uses. These are experiments.
+The first cut is deliberately small so the ownership can be proven. The direction is not a single zip workflow — it is agents as first-class operations the engine can start, attach to, cancel, and observe the same way it does everything else.
+
+These are experiments.
