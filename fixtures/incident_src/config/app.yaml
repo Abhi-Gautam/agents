@@ -1,0 +1,8 @@
+service: payments-api
+environment: production
+feature_flags:
+  new_checkout: true
+  legacy_retry: false
+database:
+  host: db.internal
+  name: payments

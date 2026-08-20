@@ -1,0 +1,4 @@
+service: payments-api
+version: 2.4.1
+git_sha: a1b2c3d
+build_time: 2026-08-18T10:22:00Z
